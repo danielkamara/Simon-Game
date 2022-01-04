@@ -1,1 +1,3 @@
 let colors = [];
+
+let randomColors = [];
