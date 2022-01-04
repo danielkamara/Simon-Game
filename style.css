@@ -1,33 +1,24 @@
-.circle {
-  height: 30em;
-  width: 30em;
-  background-color: white;
-  border: 0.5em solid black;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.red {
-  background-color: red;
-  height: 5em;
-  width: 5em;
-}
-.blue {
-  background-color: blue;
-  height: 5em;
-  width: 5em;
+.colors {
+  height: 10em;
+  width: 10em;
 }
 
 .green {
   background-color: green;
-  height: 5em;
-  width: 5em;
+  border-top-left-radius: 5em;
 }
 
 .yellow {
   background-color: yellow;
-  height: 5em;
-  width: 5em;
+  border-bottom-left-radius: 5em;
+}
+
+.blue {
+  background-color: blue;
+  border-bottom-right-radius: 5em;
+}
+
+.red {
+  background-color: red;
+  border-top-right-radius: 5em;
 }
