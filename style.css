@@ -1,7 +1,45 @@
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .circle {
-  height: 25em;
-  width: 25em;
-  background-color: black;
-  position: center;
+  height: 30em;
+  width: 30em;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.red {
+  height: 8em;
+  width: 8em;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.blue {
+  height: 8em;
+  width: 8em;
+  background-color: blue;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.yellow {
+  height: 8em;
+  width: 8em;
+  background-color: yellow;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.green {
+  height: 8em;
+  width: 8em;
+  background-color: green;
+  border: 1px solid black;
   border-radius: 50%;
 }
