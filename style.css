@@ -1,5 +1,5 @@
 body {
-  background-color: ;
+  /* background-color: black; */
 }
 
 .game {
@@ -14,6 +14,20 @@ h1 {
 .colors {
   height: 15em;
   width: 15em;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.colors:after {
+  content: "";
+  background: white;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.colors:active:after {
+  opacity: 1;
+  transition: 0s;
 }
 
 .greenBtn {
