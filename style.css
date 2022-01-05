@@ -1,24 +1,44 @@
-.colors {
-  height: 10em;
-  width: 10em;
+body {
+  background-color: ;
 }
 
-.green {
+.game {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.colors {
+  height: 15em;
+  width: 15em;
+}
+
+.greenBtn {
   background-color: green;
   border-top-left-radius: 5em;
 }
 
-.yellow {
+.yellowBtn {
   background-color: yellow;
   border-bottom-left-radius: 5em;
 }
 
-.blue {
+.blueBtn {
   background-color: blue;
   border-bottom-right-radius: 5em;
 }
 
-.red {
+.redBtn {
   background-color: red;
   border-top-right-radius: 5em;
+}
+
+.light-up {
+  background-color: white;
+}
+
+.start {
 }
