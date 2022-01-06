@@ -1,7 +1,3 @@
-body {
-  /* background-color: black; */
-}
-
 .game {
   display: flex;
   justify-content: center;
@@ -11,41 +7,29 @@ h1 {
   text-align: center;
 }
 
-.colors {
+.btn {
   height: 15em;
   width: 15em;
   cursor: pointer;
-  transition-duration: 0.4s;
+  transition-duration: 0.5s;
 }
 
-.colors:after {
-  content: "";
-  background: white;
-  opacity: 0;
-  transition: all 0.8s;
-}
-
-.colors:active:after {
-  opacity: 1;
-  transition: 0s;
-}
-
-.greenBtn {
+#greenBtn {
   background-color: green;
   border-top-left-radius: 5em;
 }
 
-.yellowBtn {
+#yellowBtn {
   background-color: yellow;
   border-bottom-left-radius: 5em;
 }
 
-.blueBtn {
+#blueBtn {
   background-color: blue;
   border-bottom-right-radius: 5em;
 }
 
-.redBtn {
+#redBtn {
   background-color: red;
   border-top-right-radius: 5em;
 }
@@ -54,5 +38,6 @@ h1 {
   background-color: white;
 }
 
-.start {
+.startButton {
+  background-color: gray;
 }

@@ -1,7 +1,7 @@
-const greenButton = document.querySelector(".greenBtn");
-const redButton = document.querySelector(".redBtn");
-const yellowButton = document.querySelector(".yellowBtn");
-const blueButton = document.querySelector(".blueBtn");
+const greenButton = document.querySelector("#greenBtn");
+const redButton = document.querySelector("#redBtn");
+const yellowButton = document.querySelector("#yellowBtn");
+const blueButton = document.querySelector("#blueBtn");
 const startButton = document.querySelector(".startButton");
 
 const colorButtons = [greenButton, redButton, yellowButton, blueButton];
@@ -19,27 +19,27 @@ const computerPickedColor = () => {
 
 // Make a function that the user/player can pick a color when they click on a button. Put it in an array
 
-greenButton.addEventListener("click", (event) => {
-  greenButton.style.backgroundColor = "white";
+greenButton.addEventListener("click", (e) => {
   userPickedColors.push(greenButton);
+  changeBackGreen();
   console.log(userPickedColors);
 });
 
-redButton.addEventListener("click", (event) => {
-  redButton.style.backgroundColor = "white";
+redButton.addEventListener("click", (e) => {
   userPickedColors.push(redButton);
+  changeBackRed();
   console.log(userPickedColors);
 });
 
-yellowButton.addEventListener("click", (event) => {
-  yellowButton.style.backgroundColor = "white";
+yellowButton.addEventListener("click", (e) => {
   userPickedColors.push(yellowButton);
+  changeBackYellow();
   console.log(userPickedColors);
 });
 
-blueButton.addEventListener("click", (event) => {
-  blueButton.style.backgroundColor = "white";
+blueButton.addEventListener("click", (e) => {
   userPickedColors.push(blueButton);
+  changeBackBlue();
   console.log(userPickedColors);
 });
 
@@ -50,3 +50,33 @@ startGame = () => {};
 // Make a function to compare color clicks
 
 doesItMatch = () => {};
+
+// Make function for buttons to change back to original color when button is clicked (Click Animation)
+
+const changeBackBlue = () => {
+  blueButton.style.backgroundColor = "white";
+  setTimeout(function () {
+    blueButton.style.backgroundColor = "blue";
+  }, 500);
+};
+
+const changeBackRed = () => {
+  redButton.style.backgroundColor = "white";
+  setTimeout(function () {
+    redButton.style.backgroundColor = "red";
+  }, 500);
+};
+
+const changeBackGreen = () => {
+  greenButton.style.backgroundColor = "white";
+  setTimeout(function () {
+    greenButton.style.backgroundColor = "green";
+  }, 500);
+};
+
+const changeBackYellow = () => {
+  yellowButton.style.backgroundColor = "white";
+  setTimeout(function () {
+    yellowButton.style.backgroundColor = "yellow";
+  }, 500);
+};
