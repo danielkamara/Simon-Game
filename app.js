@@ -7,6 +7,13 @@ let displayRound = document.querySelector(".round");
 let round = 0;
 let start = false;
 
+let sounds = [
+  "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",
+  "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",
+  "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",
+  "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3",
+];
+
 const colorButtons = [greenButton, redButton, yellowButton, blueButton];
 const computerPickedColorsArray = [];
 let userPickedColorsArray = [];
