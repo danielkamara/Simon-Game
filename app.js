@@ -3,6 +3,7 @@ const redButton = document.querySelector("#redBtn");
 const yellowButton = document.querySelector("#yellowBtn");
 const blueButton = document.querySelector("#blueBtn");
 const startButton = document.querySelector(".startButton");
+const level = 0;
 
 const colorButtons = [greenButton, redButton, yellowButton, blueButton];
 const computerPickedColorsArray = [];
@@ -25,35 +26,33 @@ const computerPickedColor = () => {
   }
 };
 
-startButton.addEventListener("click", (e) => {
-  computerPickedColor();
-
-  console.log(computerPickedColorsArray);
-});
-
 // Make a function that the user/player can pick a color when they click on a button. Put it in an array
 
 greenButton.addEventListener("click", (e) => {
   userPickedColorsArray.push(greenButton);
   changeBackGreen();
+  doesItMatch();
   console.log(userPickedColorsArray);
 });
 
 redButton.addEventListener("click", (e) => {
   userPickedColorsArray.push(redButton);
   changeBackRed();
+  doesItMatch();
   console.log(userPickedColorsArray);
 });
 
 yellowButton.addEventListener("click", (e) => {
   userPickedColorsArray.push(yellowButton);
   changeBackYellow();
+  doesItMatch();
   console.log(userPickedColorsArray);
 });
 
 blueButton.addEventListener("click", (e) => {
   userPickedColorsArray.push(blueButton);
   changeBackBlue();
+  doesItMatch();
   console.log(userPickedColorsArray);
 });
 
@@ -91,6 +90,18 @@ const changeBackYellow = () => {
 
 // startGame = () => {};
 
+startButton.addEventListener("click", (e) => {
+  computerPickedColor();
+  doesItMatch();
+  console.log(computerPickedColorsArray);
+});
+
 // Make a function to compare color clicks
 
-doesItMatch = () => {};
+const doesItMatch = () => {
+  if (userPickedColorsArray.length === computerPickedColorsArray.length) {
+    alert("Match");
+  } else {
+    console.log("No Match!!!!");
+  }
+};
