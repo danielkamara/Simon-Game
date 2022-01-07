@@ -4,7 +4,7 @@ const yellowButton = document.querySelector("#yellowBtn");
 const blueButton = document.querySelector("#blueBtn");
 const startButton = document.querySelector(".startButton");
 let displayRound = document.querySelector(".round");
-let round = 0;
+let round = 1;
 let start = false;
 
 let sounds = [
@@ -15,7 +15,7 @@ let sounds = [
 ];
 
 const colorButtons = [greenButton, redButton, yellowButton, blueButton];
-const computerPickedColorsArray = [];
+let computerPickedColorsArray = [];
 let userPickedColorsArray = [];
 
 // make a function that will make a flash animation when clicked
@@ -101,20 +101,21 @@ const computerPickedColor = () => {
 };
 
 // Make a function to show the computers picks
-let seeComputerPicks = () => {
+function seeComputerPicks() {
   let start = 0;
   let gamePicks = setInterval(thisPick, 1000);
 
   function thisPick() {
     if (start < computerPickedColorsArray.length) {
       let currentPick = computerPickedColorsArray[start];
-      flash(currentPick);
+
       start++;
+      flash(currentPick);
     } else {
       clearInterval(gamePicks);
     }
   }
-};
+}
 
 // Make function to start game
 
@@ -137,7 +138,7 @@ startButton.addEventListener("click", (e) => {
       displayRound.innerHTML = `Round ` + round;
       console.log(computerPickedColorsArray);
     } else if (!doesItMatch()) {
-      console.log("No Match");
+      gameOver();
     }
   }, 400);
 });
@@ -150,3 +151,17 @@ const doesItMatch = () => {
   }
   return true;
 };
+
+// Make a function to end the game
+function gameOver() {
+  level = 0;
+  userPickedColorsArray = [];
+  computerPickedColorsArray = [];
+  start = false;
+
+  displayRound.innerHTML = `Game Over!!!!`;
+
+  setTimeout(function () {
+    displayRound.innerHTML = `Press Any Key To Start`;
+  }, 1000);
+}
