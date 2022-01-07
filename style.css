@@ -7,7 +7,8 @@ body {
   justify-content: center;
 }
 
-h1 {
+h1,
+h2 {
   color: white;
   text-align: center;
 }
@@ -20,22 +21,22 @@ h1 {
 }
 
 #greenBtn {
-  background-color: green;
+  background-color: darkgreen;
   border-top-left-radius: 5em;
 }
 
 #yellowBtn {
-  background-color: yellow;
+  background-color: darkgoldenrod;
   border-bottom-left-radius: 5em;
 }
 
 #blueBtn {
-  background-color: blue;
+  background-color: darkblue;
   border-bottom-right-radius: 5em;
 }
 
 #redBtn {
-  background-color: red;
+  background-color: darkred;
   border-top-right-radius: 5em;
 }
 
