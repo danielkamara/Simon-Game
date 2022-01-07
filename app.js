@@ -3,12 +3,27 @@ const redButton = document.querySelector("#redBtn");
 const yellowButton = document.querySelector("#yellowBtn");
 const blueButton = document.querySelector("#blueBtn");
 const startButton = document.querySelector(".startButton");
-let level = 0;
+let displayRound = document.querySelector(".round");
+let round = 0;
 let start = false;
 
 const colorButtons = [greenButton, redButton, yellowButton, blueButton];
 const computerPickedColorsArray = [];
-const userPickedColorsArray = [];
+let userPickedColorsArray = [];
+
+// make a function that will make a flash animation when clicked
+
+const flash = (color) => {
+  if (color === greenButton) {
+    changeBackGreen();
+  } else if (color === blueButton) {
+    changeBackBlue();
+  } else if (color === redButton) {
+    changeBackRed();
+  } else if (color === yellowButton) {
+    changeBackYellow();
+  }
+};
 
 // Make function for buttons to change back to original color when button is clicked (Click Animation)
 
@@ -78,17 +93,19 @@ const computerPickedColor = () => {
   flash(randomColor);
 };
 
-// make a function that will make a flash animation when clicked
+// Make a function to show the computers picks
+let seeComputerPicks = () => {
+  let start = 0;
+  let gamePicks = setInterval(thisPick, 1000);
 
-const flash = (color) => {
-  if (color === greenButton) {
-    changeBackGreen();
-  } else if (color === blueButton) {
-    changeBackBlue();
-  } else if (color === redButton) {
-    changeBackRed();
-  } else if (color === yellowButton) {
-    changeBackYellow();
+  function thisPick() {
+    if (start < computerPickedColorsArray.length) {
+      let currentPick = computerPickedColorsArray[start];
+      flash(currentPick);
+      start++;
+    } else {
+      clearInterval(gamePicks);
+    }
   }
 };
 
@@ -96,17 +113,27 @@ const flash = (color) => {
 
 startButton.addEventListener("click", (e) => {
   setTimeout(function () {
-    // if (!start) {
-    // start = true;
-    computerPickedColor();
-    console.log(computerPickedColorsArray);
-    // }
+    if (!start) {
+      start = true;
+      computerPickedColor();
+      seeComputerPicks();
+      displayRound.innerHTML = `Round ` + round;
+      console.log(computerPickedColorsArray);
+    } else if (
+      doesItMatch() &&
+      userPickedColorsArray.length === computerPickedColorsArray.length
+    ) {
+      round++;
+      userPickedColorsArray = [];
+      computerPickedColor();
+      seeComputerPicks();
+      displayRound.innerHTML = `Round ` + round;
+      console.log(computerPickedColorsArray);
+    } else if (!doesItMatch()) {
+      console.log("No Match");
+    }
   }, 400);
-
-  console.log(computerPickedColorsArray);
 });
-
-// startGame = () => {};
 
 // Make a function to compare if the computer picks are the same as the user picks
 
@@ -115,11 +142,4 @@ const doesItMatch = () => {
     if (userPickedColorsArray[i] != computerPickedColorsArray[i]) return false;
   }
   return true;
-};
-
-// Make a function to show the computers picks
-const seeComputerPicks = () => {
-  if (start < computerPickedColorsArray.length) {
-    let currentPick = computerPickedColorsArray[start];
-  }
 };
