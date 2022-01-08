@@ -27,48 +27,48 @@ let userPickedColorsArray = [];
 
 // make a function that will make a flash animation when clicked
 
-const flash = (color) => {
+const checkFlash = (color) => {
   if (color === greenButton) {
-    changeBackGreen();
+    flashGreen();
   } else if (color === blueButton) {
-    changeBackBlue();
+    flashBlue();
   } else if (color === redButton) {
-    changeBackRed();
+    flashRed();
   } else if (color === yellowButton) {
-    changeBackYellow();
+    flashYellow();
   }
 };
 
 // Make function for buttons to change back to original color when button is clicked (Click Animation)
 
-const changeBackBlue = () => {
+const flashBlue = () => {
   blueButton.style.backgroundColor = "white";
+  sound1();
   setTimeout(function () {
-    sound1();
     blueButton.style.backgroundColor = "blue";
   }, 300);
 };
 
-const changeBackRed = () => {
+const flashRed = () => {
   redButton.style.backgroundColor = "white";
+  sound2();
   setTimeout(function () {
-    sound2();
     redButton.style.backgroundColor = "darkred";
   }, 300);
 };
 
-const changeBackGreen = () => {
+const flashGreen = () => {
   greenButton.style.backgroundColor = "white";
+  sound3();
   setTimeout(function () {
-    sound3();
     greenButton.style.backgroundColor = "darkgreen";
   }, 300);
 };
 
-const changeBackYellow = () => {
+const flashYellow = () => {
   yellowButton.style.backgroundColor = "white";
+  sound4();
   setTimeout(function () {
-    sound4();
     yellowButton.style.backgroundColor = "darkgoldenrod";
   }, 300);
 };
@@ -77,28 +77,28 @@ const changeBackYellow = () => {
 
 greenButton.addEventListener("click", (e) => {
   userPickedColorsArray.push(greenButton);
-  changeBackGreen();
+  flashGreen();
 
   console.log(userPickedColorsArray);
 });
 
 redButton.addEventListener("click", (e) => {
   userPickedColorsArray.push(redButton);
-  changeBackRed();
+  flashRed();
 
   console.log(userPickedColorsArray);
 });
 
 yellowButton.addEventListener("click", (e) => {
   userPickedColorsArray.push(yellowButton);
-  changeBackYellow();
+  flashYellow();
 
   console.log(userPickedColorsArray);
 });
 
 blueButton.addEventListener("click", (e) => {
   userPickedColorsArray.push(blueButton);
-  changeBackBlue();
+  flashBlue();
 
   console.log(userPickedColorsArray);
 });
@@ -108,7 +108,7 @@ const computerPickedColor = () => {
   let num = Math.floor(Math.random() * 4);
   let randomColor = colorButtons[num];
   computerPickedColorsArray.push(randomColor);
-  flash(randomColor);
+  checkFlash(randomColor);
 };
 
 // Make a function to show the computers picks
@@ -119,7 +119,7 @@ function seeComputerPicks() {
   function thisPick() {
     if (start < computerPickedColorsArray.length) {
       let currentPick = computerPickedColorsArray[start];
-      flash(currentPick);
+      checkFlash(currentPick);
       start++;
     } else {
       clearInterval(gamePicks);
@@ -138,7 +138,7 @@ const doesItMatch = () => {
 
 // Make a function to end the game
 function gameOver() {
-  level = 0;
+  round = 0;
   userPickedColorsArray = [];
   computerPickedColorsArray = [];
   start = true;
@@ -160,7 +160,8 @@ startButton.addEventListener("click", (e) => {
       seeComputerPicks();
       displayRound.innerHTML = `Round ` + round;
       console.log(computerPickedColorsArray);
-    } else if (start) {
+    }
+    if (start) {
     }
     if (
       doesItMatch() &&
@@ -175,7 +176,7 @@ startButton.addEventListener("click", (e) => {
     }
 
     // If there is a difference between userClickedPattern and gamePattern
-    else if (!doesItMatch()) {
+    if (!doesItMatch()) {
       // Initiate gameOver and reset the game
       gameOver();
     }
