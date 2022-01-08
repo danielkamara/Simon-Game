@@ -108,7 +108,8 @@ const computerPickedColor = () => {
   let num = Math.floor(Math.random() * 4);
   let randomColor = colorButtons[num];
   computerPickedColorsArray.push(randomColor);
-  checkFlash(randomColor);
+  // checkFlash(randomColor);
+  console.log(computerPickedColorsArray);
 };
 
 // Make a function to show the computers picks
@@ -141,7 +142,7 @@ function gameOver() {
   round = 0;
   userPickedColorsArray = [];
   computerPickedColorsArray = [];
-  start = true;
+  start = false;
 
   displayRound.innerHTML = `Game Over!!!!`;
 
@@ -173,6 +174,10 @@ startButton.addEventListener("click", (e) => {
       computerPickedColor();
       seeComputerPicks();
       displayRound.innerHTML = `Round ` + round;
+      if (round == 4) {
+        alert("You Win!!!");
+        location.reload();
+      }
     }
 
     // If there is a difference between userClickedPattern and gamePattern
