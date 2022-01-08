@@ -119,40 +119,13 @@ function seeComputerPicks() {
   function thisPick() {
     if (start < computerPickedColorsArray.length) {
       let currentPick = computerPickedColorsArray[start];
-
-      start++;
       flash(currentPick);
+      start++;
     } else {
       clearInterval(gamePicks);
     }
   }
 }
-
-// Make function to start game
-
-startButton.addEventListener("click", (e) => {
-  setTimeout(function () {
-    if (!start) {
-      start = true;
-      computerPickedColor();
-      seeComputerPicks();
-      displayRound.innerHTML = `Round ` + round;
-      console.log(computerPickedColorsArray);
-    } else if (
-      doesItMatch() &&
-      userPickedColorsArray.length === computerPickedColorsArray.length
-    ) {
-      round++;
-      userPickedColorsArray = [];
-      computerPickedColor();
-      seeComputerPicks();
-      displayRound.innerHTML = `Round ` + round;
-      console.log(computerPickedColorsArray);
-    } else if (!doesItMatch()) {
-      gameOver();
-    }
-  }, 200);
-});
 
 // Make a function to compare if the computer picks are the same as the user picks
 
@@ -168,11 +141,43 @@ function gameOver() {
   level = 0;
   userPickedColorsArray = [];
   computerPickedColorsArray = [];
-  start = false;
+  start = true;
 
   displayRound.innerHTML = `Game Over!!!!`;
 
   setTimeout(function () {
-    displayRound.innerHTML = `Press Any Key To Start`;
+    displayRound.innerHTML = `Press Start Button To Start Game.`;
   }, 1000);
 }
+
+// Make function to start game
+
+startButton.addEventListener("click", (e) => {
+  setTimeout(function () {
+    if (!start) {
+      start = true;
+      computerPickedColor();
+      seeComputerPicks();
+      displayRound.innerHTML = `Round ` + round;
+      console.log(computerPickedColorsArray);
+    } else if (start) {
+    }
+    if (
+      doesItMatch() &&
+      userPickedColorsArray.length === computerPickedColorsArray.length
+    ) {
+      // If its true, run the code below to go to the next level
+      round++;
+      userPickedColorsArray = [];
+      computerPickedColor();
+      seeComputerPicks();
+      displayRound.innerHTML = `Round ` + round;
+    }
+
+    // If there is a difference between userClickedPattern and gamePattern
+    else if (!doesItMatch()) {
+      // Initiate gameOver and reset the game
+      gameOver();
+    }
+  }, 200);
+});
