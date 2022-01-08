@@ -3,6 +3,9 @@ const redButton = document.querySelector("#redBtn");
 const yellowButton = document.querySelector("#yellowBtn");
 const blueButton = document.querySelector("#blueBtn");
 const startButton = document.querySelector(".startButton");
+const currentPatternList = document.querySelector("#current-pattern");
+const repeat = document.querySelector(".repeat");
+
 let displayRound = document.querySelector(".round");
 let round = 1;
 let start = false;
@@ -28,6 +31,7 @@ let userPickedColorsArray = [];
 // make a function that will make a flash animation when clicked
 
 const checkFlash = (color) => {
+  console.log(color);
   if (color === greenButton) {
     flashGreen();
   } else if (color === blueButton) {
@@ -58,6 +62,7 @@ const flashRed = () => {
 };
 
 const flashGreen = () => {
+  console.log(65);
   greenButton.style.backgroundColor = "white";
   sound3();
   setTimeout(function () {
@@ -103,12 +108,17 @@ blueButton.addEventListener("click", (e) => {
   console.log(userPickedColorsArray);
 });
 
+repeat.addEventListener("click", seeComputerPicks);
+
+function addToColorsList() {}
+
 // Make a function that will have the computer pick the next colors randomly. And put the computers picks in an array.
 const computerPickedColor = () => {
   let num = Math.floor(Math.random() * 4);
   let randomColor = colorButtons[num];
   computerPickedColorsArray.push(randomColor);
-  // checkFlash(randomColor);
+
+  // // addToColorsList(randomColor);
   console.log(computerPickedColorsArray);
 };
 
@@ -159,11 +169,11 @@ startButton.addEventListener("click", (e) => {
       start = true;
       computerPickedColor();
       seeComputerPicks();
+
       displayRound.innerHTML = `Round ` + round;
       console.log(computerPickedColorsArray);
     }
-    if (start) {
-    }
+
     if (
       doesItMatch() &&
       userPickedColorsArray.length === computerPickedColorsArray.length
