@@ -7,12 +7,19 @@ let displayRound = document.querySelector(".round");
 let round = 1;
 let start = false;
 
-let sounds = [
-  "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",
-  "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",
-  "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",
-  "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3",
-];
+// Make sounds for the buttons clicked
+const sound1 = () => {
+  new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3").play();
+};
+const sound2 = () => {
+  new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3").play();
+};
+const sound3 = () => {
+  new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3").play();
+};
+const sound4 = () => {
+  new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3").play();
+};
 
 const colorButtons = [greenButton, redButton, yellowButton, blueButton];
 let computerPickedColorsArray = [];
@@ -37,6 +44,7 @@ const flash = (color) => {
 const changeBackBlue = () => {
   blueButton.style.backgroundColor = "white";
   setTimeout(function () {
+    sound1();
     blueButton.style.backgroundColor = "blue";
   }, 300);
 };
@@ -44,6 +52,7 @@ const changeBackBlue = () => {
 const changeBackRed = () => {
   redButton.style.backgroundColor = "white";
   setTimeout(function () {
+    sound2();
     redButton.style.backgroundColor = "darkred";
   }, 300);
 };
@@ -51,6 +60,7 @@ const changeBackRed = () => {
 const changeBackGreen = () => {
   greenButton.style.backgroundColor = "white";
   setTimeout(function () {
+    sound3();
     greenButton.style.backgroundColor = "darkgreen";
   }, 300);
 };
@@ -58,6 +68,7 @@ const changeBackGreen = () => {
 const changeBackYellow = () => {
   yellowButton.style.backgroundColor = "white";
   setTimeout(function () {
+    sound4();
     yellowButton.style.backgroundColor = "darkgoldenrod";
   }, 300);
 };
@@ -140,7 +151,7 @@ startButton.addEventListener("click", (e) => {
     } else if (!doesItMatch()) {
       gameOver();
     }
-  }, 400);
+  }, 200);
 });
 
 // Make a function to compare if the computer picks are the same as the user picks
