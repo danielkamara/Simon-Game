@@ -3,6 +3,7 @@ const redButton = document.querySelector("#redBtn");
 const yellowButton = document.querySelector("#yellowBtn");
 const blueButton = document.querySelector("#blueBtn");
 const startButton = document.querySelector(".startButton");
+const resetButton = document.querySelector(".reset");
 const currentPatternList = document.querySelector("#current-pattern");
 const repeat = document.querySelector(".repeat");
 const colorButtons = [greenButton, redButton, yellowButton, blueButton];
@@ -165,6 +166,7 @@ const checkGuess = (color) => {
   ) {
     gameState.gameOver = true;
     gameOver();
+    startGame();
   } else {
     nextRound();
   }
@@ -192,6 +194,12 @@ const gameOver = () => {
   displayRound.innerHTML = `You Lost!!!!`;
 
   setTimeout(function () {
-    displayRound.innerHTML = `Press Start Button To Start Game.`;
+    displayRound.innerHTML = `Press Reset Button To Start Game.`;
   }, 1000);
 };
+
+resetButton.addEventListener("click", resetGame);
+
+function resetGame() {
+  location.reload();
+}
