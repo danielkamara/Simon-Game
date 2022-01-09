@@ -23,7 +23,16 @@ const sound4 = () => {
   new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3").play();
 };
 
-// make a function that will make a flash animation when clicked
+// Made an object to see the current state of the game
+const gameState = {
+  round: 1,
+  computerPickedColorsArray: [],
+  userPickedColorsArray: [],
+  gameOver: false,
+  currentGuessIndex: 0,
+};
+
+// Made a function that will make a flash animation when clicked
 
 const checkFlash = (color) => {
   console.log(color);
@@ -38,7 +47,7 @@ const checkFlash = (color) => {
   }
 };
 
-// Make function for buttons to change back to original color when button is clicked (Click Animation)
+// Made a function for buttons to change back to original color when button is clicked (Flash Animation)
 
 const flashBlue = () => {
   blueButton.style.backgroundColor = "white";
@@ -57,7 +66,6 @@ const flashRed = () => {
 };
 
 const flashGreen = () => {
-  console.log(65);
   greenButton.style.backgroundColor = "white";
   sound3();
   setTimeout(function () {
@@ -107,7 +115,7 @@ blueButton.addEventListener("click", (e) => {
   console.log(gameState.userPickedColorsArray);
 });
 
-// See computers picks
+// Added function to a repeat button
 repeat.addEventListener("click", seeComputerPicks);
 
 // Make a function that will have the computer pick the next colors randomly. And put the computers picks in an array.
@@ -136,27 +144,18 @@ function seeComputerPicks() {
   }
 }
 
-// Make a function to end the game
-function gameOver() {
-  gameState.round = 0;
-  gameState.userPickedColorsArray = [];
-  gameState.computerPickedColorsArray = [];
+// Made function to start game
 
-  displayRound.innerHTML = `Game Over!!!!`;
+startButton.addEventListener("click", (e) => startGame());
 
-  setTimeout(function () {
-    displayRound.innerHTML = `Press Start Button To Start Game.`;
-  }, 1000);
-}
+const startGame = () => {
+  if (!gameState.gameOver) {
+    computerPickedColor();
+    seeComputerPicks();
 
-// Make function to start game
-
-const gameState = {
-  round: 1,
-  computerPickedColorsArray: [],
-  userPickedColorsArray: [],
-  gameOver: false,
-  currentGuessIndex: 0,
+    displayRound.innerHTML = `Round ` + gameState.round;
+    startButton.style.visibility = "hidden";
+  }
 };
 
 const checkGuess = (color) => {
@@ -165,13 +164,13 @@ const checkGuess = (color) => {
     gameState.computerPickedColorsArray[gameState.currentGuessIndex++] !== color
   ) {
     gameState.gameOver = true;
-    console.log("You Lost");
+    gameOver();
   } else {
-    checkIfWon();
+    nextRound();
   }
 };
 
-const checkIfWon = () => {
+const nextRound = () => {
   if (
     gameState.computerPickedColorsArray.length ===
       gameState.userPickedColorsArray.length &&
@@ -184,13 +183,15 @@ const checkIfWon = () => {
   }
 };
 
-const startGame = () => {
-  if (!gameState.gameOver) {
-    computerPickedColor();
-    seeComputerPicks();
+// Made a function to end the game
+const gameOver = () => {
+  gameState.round = 0;
+  gameState.userPickedColorsArray = [];
+  gameState.computerPickedColorsArray = [];
 
-    displayRound.innerHTML = `Round ` + gameState.round;
-  }
+  displayRound.innerHTML = `You Lost!!!!`;
+
+  setTimeout(function () {
+    displayRound.innerHTML = `Press Start Button To Start Game.`;
+  }, 1000);
 };
-
-startButton.addEventListener("click", (e) => startGame());
