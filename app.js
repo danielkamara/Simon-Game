@@ -31,6 +31,7 @@ const gameState = {
   userPickedColorsArray: [],
   gameOver: false,
   currentGuessIndex: 0,
+  win: true,
 };
 
 // Made a function that will make a flash animation when clicked
@@ -162,11 +163,17 @@ const startGame = () => {
 const checkGuess = (color) => {
   console.log(gameState);
   if (
+    gameState.round == 4 &&
+    gameState.computerPickedColorsArray.length ===
+      gameState.userPickedColorsArray.length
+  ) {
+    winGame();
+  }
+  if (
     gameState.computerPickedColorsArray[gameState.currentGuessIndex++] !== color
   ) {
     gameState.gameOver = true;
     gameOver();
-    startGame();
   } else {
     nextRound();
   }
@@ -195,7 +202,7 @@ const gameOver = () => {
 
   setTimeout(function () {
     displayRound.innerHTML = `Press Reset Button To Start Game.`;
-  }, 1000);
+  }, 2000);
 };
 
 resetButton.addEventListener("click", resetGame);
@@ -203,3 +210,8 @@ resetButton.addEventListener("click", resetGame);
 function resetGame() {
   location.reload();
 }
+
+const winGame = () => {
+  displayRound.innerHTML = `You Win!!!`;
+  setTimeout(resetGame, 1000);
+};
