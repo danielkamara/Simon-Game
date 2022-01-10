@@ -22,22 +22,22 @@ h2 {
 
 #greenBtn {
   background-color: darkgreen;
-  border-top-left-radius: 5em;
+  border-top-left-radius: 100%;
 }
 
 #yellowBtn {
   background-color: darkgoldenrod;
-  border-bottom-left-radius: 5em;
+  border-bottom-left-radius: 100%;
 }
 
 #blueBtn {
   background-color: darkblue;
-  border-bottom-right-radius: 5em;
+  border-bottom-right-radius: 100%;
 }
 
 #redBtn {
   background-color: darkred;
-  border-top-right-radius: 5em;
+  border-top-right-radius: 100%;
 }
 
 .light-up {

@@ -4,11 +4,10 @@ const yellowButton = document.querySelector("#yellowBtn");
 const blueButton = document.querySelector("#blueBtn");
 const startButton = document.querySelector(".startButton");
 const resetButton = document.querySelector(".reset");
-const currentPatternList = document.querySelector("#current-pattern");
 const repeat = document.querySelector(".repeat");
-const colorButtons = [greenButton, redButton, yellowButton, blueButton];
-
 let displayRound = document.querySelector(".round");
+
+const colorButtons = [greenButton, redButton, yellowButton, blueButton];
 
 // Make sounds for the buttons clicked
 const sound1 = () => {
@@ -188,7 +187,7 @@ const nextRound = () => {
     gameState.round++;
     gameState.userPickedColorsArray = [];
     gameState.currentGuessIndex = 0;
-    setTimeout(startGame, 2000);
+    setTimeout(startGame, 3000);
   }
 };
 
@@ -197,6 +196,7 @@ const gameOver = () => {
   gameState.round = 0;
   gameState.userPickedColorsArray = [];
   gameState.computerPickedColorsArray = [];
+  document.body.style.backgroundColor = "red";
 
   displayRound.innerHTML = `You Lost!!!!`;
 
