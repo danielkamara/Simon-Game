@@ -54,31 +54,31 @@ const flashBlue = () => {
   sound1();
   setTimeout(function () {
     blueButton.style.backgroundColor = "blue";
-  }, 300);
+  }, 200);
 };
 
 const flashRed = () => {
   redButton.style.backgroundColor = "white";
   sound2();
   setTimeout(function () {
-    redButton.style.backgroundColor = "darkred";
-  }, 300);
+    redButton.style.backgroundColor = "red";
+  }, 200);
 };
 
 const flashGreen = () => {
   greenButton.style.backgroundColor = "white";
   sound3();
   setTimeout(function () {
-    greenButton.style.backgroundColor = "darkgreen";
-  }, 300);
+    greenButton.style.backgroundColor = "green";
+  }, 200);
 };
 
 const flashYellow = () => {
   yellowButton.style.backgroundColor = "white";
   sound4();
   setTimeout(function () {
-    yellowButton.style.backgroundColor = "darkgoldenrod";
-  }, 300);
+    yellowButton.style.backgroundColor = "yellow";
+  }, 200);
 };
 
 // Make a function that the user/player can pick a color when they click on a button. Put it in an array
@@ -123,9 +123,6 @@ const computerPickedColor = () => {
   let num = Math.floor(Math.random() * 4);
   let randomColor = colorButtons[num];
   gameState.computerPickedColorsArray.push(randomColor);
-
-  // // addToColorsList(randomColor);
-  console.log(gameState.computerPickedColorsArray);
 };
 
 // Make a function to show the computers picks
@@ -161,7 +158,7 @@ const startGame = () => {
 const checkGuess = (color) => {
   // console.log(gameState);
   if (
-    gameState.round == 10 &&
+    gameState.round == 20 &&
     gameState.computerPickedColorsArray.length ===
       gameState.userPickedColorsArray.length
   ) {
@@ -187,7 +184,7 @@ const nextRound = () => {
     gameState.round++;
     gameState.userPickedColorsArray = [];
     gameState.currentGuessIndex = 0;
-    setTimeout(startGame, 3000);
+    setTimeout(startGame, 2000);
   }
 };
 
@@ -213,7 +210,6 @@ function resetGame() {
 
 const winGame = () => {
   displayRound.innerHTML = `You Win!!!`;
-  // displayRound.innerHTML = `Happy Birthday AVA !!!!!!!!!!`;
 
   setTimeout(resetGame, 2000);
 };
