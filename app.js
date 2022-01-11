@@ -36,7 +36,6 @@ const gameState = {
 // Made a function that will make a flash animation when clicked
 
 const checkFlash = (color) => {
-  console.log(color);
   if (color === greenButton) {
     flashGreen();
   } else if (color === blueButton) {
@@ -113,7 +112,7 @@ blueButton.addEventListener("click", (e) => {
   checkGuess(blueButton);
   flashBlue();
 
-  console.log(gameState.userPickedColorsArray);
+  // console.log(gameState.userPickedColorsArray);
 });
 
 // Added function to a repeat button
@@ -126,7 +125,7 @@ const computerPickedColor = () => {
   gameState.computerPickedColorsArray.push(randomColor);
 
   // // addToColorsList(randomColor);
-  console.log(gameState.computerPickedColorsArray);
+  // console.log(gameState.computerPickedColorsArray);
 };
 
 // Make a function to show the computers picks
@@ -160,7 +159,7 @@ const startGame = () => {
 };
 
 const checkGuess = (color) => {
-  console.log(gameState);
+  // console.log(gameState);
   if (
     gameState.round == 10 &&
     gameState.computerPickedColorsArray.length ===
