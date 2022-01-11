@@ -172,6 +172,7 @@ const checkGuess = (color) => {
   ) {
     gameState.gameOver = true;
     gameOver();
+    setTimeout(resetGame, 1000);
   } else {
     nextRound();
   }
@@ -212,5 +213,5 @@ function resetGame() {
 
 const winGame = () => {
   displayRound.innerHTML = `You Win!!!`;
-  setTimeout(resetGame, 1000);
+  setTimeout(resetGame, 2000);
 };
