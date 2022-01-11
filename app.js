@@ -89,7 +89,7 @@ greenButton.addEventListener("click", (e) => {
   checkGuess(greenButton);
   flashGreen();
 
-  console.log(gameState.userPickedColorsArray);
+  // console.log(gameState.userPickedColorsArray);
 });
 
 redButton.addEventListener("click", (e) => {
@@ -97,7 +97,7 @@ redButton.addEventListener("click", (e) => {
   checkGuess(redButton);
   flashRed();
 
-  console.log(gameState.userPickedColorsArray);
+  // console.log(gameState.userPickedColorsArray);
 });
 
 yellowButton.addEventListener("click", (e) => {
@@ -105,7 +105,7 @@ yellowButton.addEventListener("click", (e) => {
   checkGuess(yellowButton);
   flashYellow();
 
-  console.log(gameState.userPickedColorsArray);
+  // console.log(gameState.userPickedColorsArray);
 });
 
 blueButton.addEventListener("click", (e) => {
@@ -162,7 +162,7 @@ const startGame = () => {
 const checkGuess = (color) => {
   console.log(gameState);
   if (
-    gameState.round == 4 &&
+    gameState.round == 10 &&
     gameState.computerPickedColorsArray.length ===
       gameState.userPickedColorsArray.length
   ) {
