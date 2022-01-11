@@ -15,3 +15,7 @@
 - The user will have to now match the 1st color and the 2nd color In order to go to the 3rd round.
 - This game will go on until there are 10 rounds that the user will have to match from the computers picks.
 - If the player wins all of the rounds, they win the game!!!!!! (Whoop Whoop!!!!!!!)
+
+# You Can Find The Live Game Here
+
+- https://confident-fermi-9b2d6c.netlify.app/
