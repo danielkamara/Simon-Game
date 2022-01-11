@@ -47,3 +47,7 @@ h2 {
 .startButton {
   background-color: white;
 }
+
+#button {
+  text-align: center;
+}
