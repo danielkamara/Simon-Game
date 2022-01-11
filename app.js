@@ -125,7 +125,7 @@ const computerPickedColor = () => {
   gameState.computerPickedColorsArray.push(randomColor);
 
   // // addToColorsList(randomColor);
-  // console.log(gameState.computerPickedColorsArray);
+  console.log(gameState.computerPickedColorsArray);
 };
 
 // Make a function to show the computers picks
@@ -196,7 +196,7 @@ const gameOver = () => {
   gameState.round = 0;
   gameState.userPickedColorsArray = [];
   gameState.computerPickedColorsArray = [];
-  document.body.style.backgroundColor = "red";
+  // document.body.style.backgroundColor = "red";
 
   displayRound.innerHTML = `You Lost!!!!`;
 
@@ -213,5 +213,7 @@ function resetGame() {
 
 const winGame = () => {
   displayRound.innerHTML = `You Win!!!`;
+  // displayRound.innerHTML = `Happy Birthday AVA !!!!!!!!!!`;
+
   setTimeout(resetGame, 2000);
 };
