@@ -196,7 +196,7 @@ const gameOver = () => {
   gameState.round = 0;
   gameState.userPickedColorsArray = [];
   gameState.computerPickedColorsArray = [];
-  // document.body.style.backgroundColor = "red";
+  document.body.style.backgroundColor = "red";
 
   displayRound.innerHTML = `You Lost!!!!`;
 
