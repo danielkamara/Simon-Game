@@ -209,8 +209,8 @@ function resetGame() {
 }
 
 const winGame = () => {
-  // displayRound.innerHTML = `You Win!!!`;
-  displayRound.innerHTML = `HAPPY BIRTHDAY AVA !!!!!!!`;
+  displayRound.innerHTML = `You Win!!!`;
+  // displayRound.innerHTML = `HAPPY BIRTHDAY AVA !!!!!!!`;
 
   setTimeout(resetGame, 2000);
 };
