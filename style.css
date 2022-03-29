@@ -62,3 +62,10 @@ h2 {
   background-color: black;
   color: white;
 }
+
+@media (min-width: 390px) {
+  .btn {
+    height: 13em;
+    width: 13em;
+  }
+}

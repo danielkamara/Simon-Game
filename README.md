@@ -19,3 +19,7 @@
 # You Can Find The Live Game Here
 
 - https://confident-fermi-9b2d6c.netlify.app/
+
+# Credits
+
+- I got the sound from a FreeCodeCamp Forum here:

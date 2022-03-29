@@ -158,7 +158,7 @@ const startGame = () => {
 const checkGuess = (color) => {
   // console.log(gameState);
   if (
-    gameState.round == 20 &&
+    gameState.round == 4 &&
     gameState.computerPickedColorsArray.length ===
       gameState.userPickedColorsArray.length
   ) {
@@ -209,7 +209,8 @@ function resetGame() {
 }
 
 const winGame = () => {
-  displayRound.innerHTML = `You Win!!!`;
+  // displayRound.innerHTML = `You Win!!!`;
+  displayRound.innerHTML = `HAPPY BIRTHDAY AVA !!!!!!!`;
 
   setTimeout(resetGame, 2000);
 };
